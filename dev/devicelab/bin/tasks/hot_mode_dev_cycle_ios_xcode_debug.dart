@@ -27,7 +27,7 @@ Future<void> main() async {
 Future<void> disableLLDBDebugging() async {
   final int configResult = await exec(path.join(flutterDirectory.path, 'bin', 'flutter'), <String>[
     'config',
-    '--no-enable-lldb-debugging',
+    '--no-lldb-debugging',
   ]);
   if (configResult != 0) {
     print('Failed to disable configuration, tasks may not run.');
@@ -37,7 +37,7 @@ Future<void> disableLLDBDebugging() async {
 Future<void> enableLLDBDebugging() async {
   final int configResult = await exec(path.join(flutterDirectory.path, 'bin', 'flutter'), <String>[
     'config',
-    '--enable-lldb-debugging',
+    '--lldb-debugging',
   ], canFail: true);
   if (configResult != 0) {
     print('Failed to enable configuration.');
